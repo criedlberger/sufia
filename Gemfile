@@ -3,12 +3,15 @@ source 'https://rubygems.org'
 # Please see sufia.gemspec for dependency information.
 gemspec
 
+gem 'sufia-models', path: './sufia-models'
+
 # Required for doing pagination inside an engine. See https://github.com/amatsuda/kaminari/pull/322
 gem 'kaminari', github: 'harai/kaminari', branch: 'route_prefix_prototype'
-gem 'sufia-models', path: './sufia-models'
+gem 'mailboxer', github: 'seankay/mailboxer', branch: 'rails-4-2'
+gem 'hydra-editor', path: '../hydra-editor'
+gem 'browse-everything', path: '../browse-everything'
 gem 'sass-rails', '~> 4.0'
 gem 'rails', '4.2.0.rc1'
-gem 'hydra-editor', path: '../hydra-editor'
 
 group :development, :test do
   gem "simplecov", require: false

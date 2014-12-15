@@ -81,6 +81,13 @@ module Sufia::User
     nil
   end
 
+  # Override this method to allow users to check a box in the profile that
+  # refreshes attrs from a remote source (like LDAP). See an example here:
+  # https://github.com/psu-stewardship/scholarsphere/blob/develop/app/models/user.rb#L121-L150
+  def populate_attributes
+    nil
+  end
+
   # The basic groups method, override or will fallback to Sufia::Ldap::User
   def groups
     @groups ||= self.group_list ? self.group_list.split(";?;") : []

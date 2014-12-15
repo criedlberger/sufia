@@ -49,7 +49,7 @@ module Sufia::UsersControllerBehavior
   def update
     if params[:user]
       @user.update_attributes(params.require(:user).permit(*User.permitted_attributes))
-      @user.populate_attributes if ActiveRecord::ConnectionAdapters::Column.value_to_boolean(params[:user][:update_directory])
+      @user.populate_attributes if !!params[:user][:update_directory]
     end
 
     unless @user.save
